@@ -6,7 +6,7 @@ import Footer from "../components/Footer.astro";
 const { title = "Articles, Stories & Tutorials For Tech People" } = Astro.props;
 
 interface Props {
-  title: string;
+  title?: string;
 }
 ---
 
@@ -24,10 +24,11 @@ interface Props {
       referrerpolicy="no-referrer"></script>
     <title>{SITE_TITLE} - {title}</title>
   </head>
-  <body class="">
+  <!-- take 100% of page slot takes most of it with flex -->
+  <body class="flex flex-col min-h-screen justify-between">
     <Navbar />
 
-    <section class="container mx-auto max-w-screen-xl mt-10 px-8">
+    <section class="container mx-auto max-w-screen-xl mt-10 px-8 flex-1">
       <slot />
     </section>
 
